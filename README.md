@@ -1,8 +1,10 @@
-# milkPolis
+# milkPolis 
 
 ## Introduction
 
 **milkPolis** is an exciting and fun 2D game built using the Pygame library. In this game, you take on the role of a heroic character who must collect coins, shoot down enemies, and drink milk for energy. Your mission is to achieve the highest score possible while staying alive and avoiding snails and snowballs.
+
+![Local Image](screenshot.png)
 
 ## Features
 
@@ -54,8 +56,8 @@ python game.py
 - Game developed by Pradish Pranam
 
 
-## License
+## Important Note
 
-This game is open-source .
+milkPolis is still under development . I am working in my free hours to add new features every day .
 
 
