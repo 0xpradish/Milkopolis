@@ -22,13 +22,17 @@
 
 1. Make sure you have Python installed on your computer.
 2. Install the Pygame library by running the following command in your terminal:
-[pip install pygame]
+```python
+pip install pygame
+```
 3. Clone this repository or download the script file to your local machine.
 
 ## How to Play
 
 1. Run the game script by executing it with Python:
-[python game.py]
+```python
+python game.py
+```
 2. Use the keyboard controls to navigate the hero:
 - Move left (A key)
 - Move right (D key)
@@ -43,7 +47,7 @@
 
 - Collect milk (M key) to replenish your energy.
 - Shoot fireballs (Spacebar) at snails to earn points.
-- Avoid snowballs and snails to prevent losing health.
+- Avoid snails to prevent losing health.
 
 ## Credits
 
