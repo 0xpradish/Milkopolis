@@ -96,8 +96,8 @@ screen = pygame.display.set_mode((800,400))
 pygame.display.set_caption('milK')
 clock = pygame.time.Clock()
 
-sky_surface = pygame.image.load('graphics/Sky.png').convert()
-ground_surface = pygame.image.load('graphics/ground.png').convert()
+sky_surface = pygame.image.load('graphics/Sky.png').convert_alpha()
+ground_surface = pygame.image.load('graphics/ground.png').convert_alpha()
 
 #Groups 
 player = pygame.sprite.GroupSingle()
@@ -112,7 +112,8 @@ pygame.time.set_timer(snail_timer,2000)
 
 test_font = pygame.font.Font('font/Pixeltype.ttf', 30)
 
-score = 50
+score = 0
+global health
 health = 30
 milk = 3
 
@@ -126,6 +127,13 @@ def player_collision(health):
 
 milk_image = pygame.image.load('graphics/milk.png')
 milk_image = pygame.transform.scale(milk_image, (90,100))
+
+snow_image = pygame.image.load('graphics/snowball.png')
+snow_image = pygame.transform.scale(snow_image, (300,130))
+
+snow_timer = pygame.USEREVENT + 2
+pygame.time.set_timer(snow_timer, 300)
+snow_list = []
 
 milk_list = []
 
@@ -151,9 +159,19 @@ def milk_collision():
     player_eyes_rect = pygame.Rect(player.sprite.rect.x + player.sprite.rect.width, player.sprite.rect.y + player.sprite.rect.height // 2 - 2    + 40, 10, 40)
     for milk in milk_list:
         if player_eyes_rect.colliderect(milk):
-            milk_list.remove(milk)     
+            milk_list.remove(milk) 
+            
+            
 
 
+def snow_screen():
+    for snow in snow_list:
+        screen.blit(snow_image,snow)
+        snow.y += 3
+        if snow.y >= 300:
+            snow_list.remove(snow)
+    
+    pygame.display.update()
 
 while True:
     for event in pygame.event.get():
@@ -163,11 +181,17 @@ while True:
 
         if event.type == snail_timer:
              snails.add(Snail(choice(['snail'])))
+
+        if event.type == snow_timer:
+            snow_rect = snow_image.get_rect(center=(randint(30, 780), 0))
+            snow_list.append(snow_rect)
+             
     
     
 
     screen.blit(sky_surface,(0,0))
-    screen.blit(ground_surface,(0,300))
+    
+    screen.blit(ground_surface,(0,230))
 
     milk_loop()
     milk_collision() 
@@ -202,7 +226,9 @@ while True:
     for milk in milk_list:
         screen.blit(milk_image,milk)
     
-    health= player_collision(health)
+    health = player_collision(health)
+
+    
 
     
 
@@ -218,7 +244,7 @@ while True:
     screen.blit(score_message,score_message_rect)
     screen.blit(health_message,health_message_rect)
 
-    
+    snow_screen()
 
     pygame.display.update()
     clock.tick(60)
