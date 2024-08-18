@@ -1,7 +1,5 @@
 # milkoPolis 
 
-## Introduction
-
 **milkPolis** is an exciting and fun 2D game built using the Pygame library. In this game, you take on the role of a heroic character who must collect coins, shoot down enemies, and drink milk for energy. Your mission is to achieve the highest score possible while staying alive and avoiding snails and snowballs.
 
 ![Local Image](images/home_screen.png)
@@ -52,14 +50,5 @@ python game.py
 - Collect milk (M key) to replenish your energy.
 - Shoot fireballs (Spacebar) at snails to earn points.
 - Avoid snails to prevent losing health.
-
-## Credits
-
-- Game developed by Pradish Pranam
-
-
-## Important Note
-
-milkPolis is still under development . I am working in my free hours to add new features every day .
 
 
